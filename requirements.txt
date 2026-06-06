@@ -31,3 +31,5 @@ faiss-cpu>=1.7.4
 
 # Optional (for JSON handling & retries)
 tenacity>=8.2.0
+crewai
+crewai_tools

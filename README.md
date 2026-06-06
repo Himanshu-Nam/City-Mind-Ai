@@ -1,117 +1,145 @@
-````markdown
 # 🌍 CityMind AI
 
-> Smart AI Powered City Assistant built using LangChain, OpenAI, Streamlit, and Agentic AI concepts.
+> An Agentic AI-powered City Intelligence Assistant that delivers real-time weather updates, latest city news, and AI-generated insights through an interactive modern interface.
 
 ---
 
-## 🚀 Overview
+## 🚀 About The Project
 
-CityMind AI is an AI-powered smart city assistant that provides:
+CityMind AI is a smart city assistant built using **CrewAI**, **OpenAI GPT-4o-mini**, **Tavily Search**, and **OpenWeather API**.
 
-- 🌤 Real-time weather updates
-- 📰 Latest city news
-- 🤖 AI-generated smart responses
-- ⚡ Tool-calling AI Agent functionality
+Instead of using a traditional chatbot workflow, CityMind AI follows an **Agentic AI architecture**, where an intelligent AI agent decides which tools to use, gathers live information, and generates a structured city report.
 
-The project uses an **Agentic AI Architecture** where the AI agent intelligently decides which tool or API to use based on the user's query.
+Users can simply enter a city name and receive:
 
----
-
-# 🖥 Application Preview
-
-## Main Features
-
-✅ Real-Time Weather Information  
-✅ Latest City News  
-✅ Tool Calling AI Agent  
-✅ Modern Animated Streamlit UI  
-✅ Typewriter Chat Effect  
-✅ Responsive Chat Interface  
-✅ LangChain Agent Integration  
+* 🌤 Current weather conditions
+* 📰 Latest city-related news
+* 🤖 AI-generated city insights
+* 📊 Structured and readable reports
 
 ---
 
-# 🧠 How It Works
+## ✨ Features
+
+### 🌤 Real-Time Weather Intelligence
+
+* Current temperature
+* Feels-like temperature
+* Humidity
+* Weather condition
+* Wind speed
+
+### 📰 Live News Retrieval
+
+* Latest city news
+* News summaries
+* Source links
+
+### 🤖 Agentic AI Workflow
+
+* Tool calling with CrewAI
+* Autonomous decision making
+* Multi-source information gathering
+
+### 🎨 Modern User Interface
+
+* Glassmorphism design
+* Dark theme
+* Animated components
+* Responsive layout
+* Premium user experience
+
+---
+
+## 🧠 Architecture
 
 ```text
-User Query
-    ↓
-LangChain Agent
-    ↓
-Tool Selection
-    ↓
-External API Call
-    ↓
-OpenAI Response Generation
-    ↓
-Response Displayed in UI
-````
+                ┌─────────────┐
+                │    User     │
+                └──────┬──────┘
+                       │
+                       ▼
+              ┌────────────────┐
+              │  CrewAI Agent  │
+              └──────┬─────────┘
+                     │
+        ┌────────────┴────────────┐
+        │                         │
+        ▼                         ▼
+ ┌───────────────┐      ┌────────────────┐
+ │ Weather Tool  │      │   News Tool    │
+ │ OpenWeather   │      │     Tavily     │
+ └───────┬───────┘      └────────┬───────┘
+         │                       │
+         └──────────┬────────────┘
+                    ▼
+          ┌───────────────────┐
+          │ GPT-4o-mini LLM   │
+          └─────────┬─────────┘
+                    ▼
+          ┌───────────────────┐
+          │ Structured Report │
+          └───────────────────┘
+```
 
 ---
 
-# 🛠 Tech Stack
+## 🛠 Technology Stack
 
-## Frontend
+### Frontend
 
 * Streamlit
 * HTML/CSS
-* Custom Animated UI
+* Custom Glassmorphism UI
 
-## Backend
+### AI Framework
 
-* Python
-* LangChain
+* CrewAI
 * OpenAI GPT-4o-mini
 
-## APIs Used
+### APIs
 
 * OpenWeather API
 * Tavily Search API
 
----
+### Programming Language
 
-# ⚡ Agent Workflow
-
-1. User enters a query
-2. LangChain Agent analyzes the request
-3. Agent selects the required tool
-4. External API fetches live data
-5. OpenAI model generates response
-6. Response is displayed in the UI
+* Python
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
 ```text
 CityMind-AI/
 │
 ├── app.py
-├── .env
+├── crew_agents.py
+├── Tools.py
 ├── requirements.txt
 ├── README.md
+├── .env
 │
 └── assets/
 ```
 
 ---
 
-# 📦 Installation
+## ⚙️ Installation
 
-Clone the repository:
+### Clone Repository
 
 ```bash
 git clone https://github.com/your-username/CityMind-AI.git
 ```
 
-Move into project directory:
+### Navigate To Project
 
 ```bash
 cd CityMind-AI
 ```
 
-Install dependencies:
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -119,19 +147,21 @@ pip install -r requirements.txt
 
 ---
 
-# 🔑 Environment Variables
+## 🔑 Environment Variables
 
-Create a `.env` file and add:
+Create a `.env` file in the project root:
 
 ```env
-OPENAI_API_KEY=your_key
-OPENWEATHER_API_KEY=your_key
-TAVILY_API_KEY=your_key
+OPENAI_API_KEY=your_openai_api_key
+
+OPENWEATHER_API_KEY=your_openweather_api_key
+
+TAVILY_API_KEY=your_tavily_api_key
 ```
 
 ---
 
-# ▶ Run the Application
+## ▶️ Run Application
 
 ```bash
 streamlit run app.py
@@ -139,41 +169,62 @@ streamlit run app.py
 
 ---
 
-# 🧪 Example Queries
+## 💡 Example Queries
 
 ```text
-Weather in Nagpur
+Mumbai
 
-Latest news in Mumbai
+Delhi
 
-What's the weather in Delhi?
+Pune
 
-News about Pune
+Nagpur
+
+Bangalore
 ```
+
+The AI agent will automatically gather weather data and the latest news for the selected city.
 
 ---
 
-# 📌 Future Improvements
+## 🔄 Agent Workflow
 
-* Multi-Agent Architecture
+1. User enters a city name
+2. CrewAI agent receives the request
+3. Agent invokes the weather tool
+4. Agent invokes the news tool
+5. Live information is collected
+6. GPT-4o-mini generates a structured report
+7. Results are displayed in the UI
+
+---
+
+## 📈 Future Enhancements
+
+* Multi-Agent Collaboration
 * Voice Assistant Support
-* Maps Integration
-* AI Travel Recommendations
-* Database Integration
+* Interactive Maps Integration
+* Travel Recommendations
+* Historical Weather Analytics
 * Cloud Deployment
 * User Authentication
+* Real-Time Alerts
+* Mobile-Friendly Version
 
 ---
 
-# 🧑‍💻 Author
+## 🧑‍💻 Author
 
-Developed by **Himanshu Namdeo** 🚀
+**Himanshu Namdeo**
+
+Automation Engineer | Python Developer | AWS Certified | AI Enthusiast
 
 ---
 
-# ⭐ Support
+## ⭐ Support
 
-If you liked this project, give it a ⭐ on GitHub.
+If you found this project useful, consider giving it a ⭐ on GitHub and sharing it with others.
 
-```
-```
+---
+
+### Built with ❤️ using CrewAI, OpenAI, Tavily, Streamlit, and OpenWeather.
